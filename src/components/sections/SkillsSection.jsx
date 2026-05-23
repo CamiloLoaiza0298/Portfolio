@@ -1,39 +1,49 @@
+import SectionTitle from '../layout/SectionTitle';
+
+function SkillBox({ title, icon, iconColor, iconBackground, skills }) {
+  return (
+    <div class={'bg-surface-container border border-white/5 p-8 rounded-xl backdrop-blur-md hover:border-primary-container/30 transition-all group'}>
+      <div class={'w-12 h-12 ' + iconColor + ' ' + iconBackground + '/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform'}>
+        <span class="material-symbols-outlined">{icon}</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-4">{title}</h3>
+      <ul class="space-y-3">
+        {skills.map((skill) => (
+          <li key={skill.name} class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+            <span class={'w-1.5 h-1.5 ' + iconBackground + ' rounded-full'}></span> {skill.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function SkillsSection() {
   const skills = [
-    { name: 'JavaScript', level: 90 },
-    { name: 'React', level: 85 },
-    { name: 'HTML/CSS', level: 95 },
-    { name: 'Node.js', level: 75 },
-    { name: 'Python', level: 70 },
-    { name: 'Git', level: 80 },
+    { category: 'Web & Frontend', skills: [{ name: 'HTML/CSS' }, { name: 'JavaScript' }, { name: 'React' }, { name: 'Tailwind CSS' }] },
+    { category: 'Programming & Tools', skills: [{ name: 'Python' }, { name: 'Java' }, { name: 'MySQL' }, { name: 'Git' }, { name: 'Testing & Debugging: Selenium, Katalon' }] },
+    { category: 'Hardware & Engineering', skills: [{ name: 'Electronics' }, { name: '3D Modeling' }, { name: '3D Printing' }, { name: 'Computer Architecture' }] },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-headline-lg font-bold text-center text-on-surface mb-12 font-headline-lg">
-          My Skills
-        </h2>
+    <section id="skills" className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low/50">
+      <div className="max-w-[1280px] mx-auto">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          {skills.map((skill) => (
-            <div key={skill.name} className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-on-surface-variant font-medium font-body-md">
-                  {skill.name}
-                </span>
-                <span className="text-on-surface-variant font-body-md">
-                  {skill.level}%
-                </span>
-              </div>
-              <div className="w-full bg-surface-container-high rounded-full h-2.5">
-                <div
-                  className="bg-primary h-2.5 rounded-full"
-                  style={{ width: `${skill.level}%` }}
-                ></div>
-              </div>
-            </div>
-          ))}
+        <SectionTitle>My Skills</SectionTitle>
+
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary-container rounded-sm"></div>
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Web & Frontend */}
+          <SkillBox title="Web & Frontend" icon="html" iconColor="text-primary-container" iconBackground="bg-primary-container" skills={skills[0].skills} />
+          {/* Programming & Tools */}
+          <SkillBox title="Software & Logic" icon="data_object" iconColor="text-secondary-fixed" iconBackground="bg-secondary-fixed" skills={skills[1].skills} />
+          {/* Hardware & Engineering */}
+          <SkillBox title="Hardware & Engineering" icon="memory" iconColor="text-tertiary-fixed" iconBackground="bg-tertiary-fixed" skills={skills[2].skills} />
         </div>
       </div>
     </section>

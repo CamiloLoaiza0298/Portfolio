@@ -34,7 +34,7 @@ export default function Navbar() {
                   {item.name}
                 </a>
               ))}
-              <a href="DOWNLOADLINKTOCHANGE" className="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+              <a href="../../CV English - Juan Camilo Loaiza.pdf" className="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
                 Download CV
               </a>
             </div>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
-            <a href="DOWNLOADLINKTOCHANGE" className="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-lg hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+            <a href="../../CV English - Juan Camilo Loaiza.pdf" className="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-lg hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
                 Download CV
             </a>
           </div>
