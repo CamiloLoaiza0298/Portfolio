@@ -1,53 +1,55 @@
+import SectionTitle from '../layout/SectionTitle';
 import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Frontend Developer',
-    company: 'Company Name',
-    period: '2023 - Present',
-    description: 'Developed responsive web applications using React and modern CSS frameworks.',
+    title: 'Resident Site Engineer',
+    company: 'Conercom S.A.S.',
+    period: 'Sept. 2023 - Dec. 2023',
+    description: 'Supervise and manage electrical projects on construction sites or industrial installations, ensuring that electrical systems are built according to specifications, comply with regulations and safety standards, and resolving technical issues during the construction process.',
+    icon: 'bolt',
+    color: 'primary',
   },
   {
-    title: 'Junior Developer',
-    company: 'Company Name',
-    period: '2022 - 2023',
-    description: 'Assisted in building and maintaining web applications with JavaScript and HTML/CSS.',
+    title: 'Production Engineer',
+    company: 'Noatec S.A.S.',
+    period: 'July 2022 - Aug. 2023',
+    description: 'Analyze, design, and modify manufacturing methods, techniques, tools, and equipment using technology to improve product quality and reduce manufacturing time and costs.',
+    icon: 'engineering',
+    color: 'secondary',
   },
 ];
+
+function ExperienceCard({ props }) {
+  return (
+    <div class="relative pl-20 group">
+      <div class={'absolute left-0 top-0 w-16 h-16 bg-surface-container border border-white/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.1)] group-hover:border-' + props.color + '-container transition-colors'}>
+        <span class={'material-symbols-outlined text-' + props.color + '-container '}>{props.icon}</span>
+      </div>
+      <div>
+        <span class={'font-code-sm text-code-sm text-' + props.color + '-container mb-2 block'}>{props.period}</span>
+        <h4 class="font-headline-md text-headline-md text-on-surface">{props.title}</h4>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-1">{props.company}</p>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-2"><span class="font-bold">Main responsibilities:</span> {props.description}</p>
+      </div>
+    </div>
+
+  )
+}
 
 export default function ExperienceSection() {
   return (
     <section id="experience" className="py-20 bg-surface-dim">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-headline-lg font-bold text-center text-on-surface mb-12 font-headline-lg">
-          Experience
-        </h2>
+        <SectionTitle>Experience</SectionTitle>
 
-        <div className="space-y-8 max-w-3xl mx-auto">
-          {experiences.map((exp) => (
-            <div
-              key={exp.title}
-              className="flex gap-4 p-6 bg-surface-container rounded-lg shadow-sm"
-            >
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                  <Briefcase className="text-on-primary" size={24} />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-headline-md font-semibold text-on-surface font-headline-md">
-                  {exp.title}
-                </h3>
-                <p className="text-body-md text-on-surface-variant font-body-md">{exp.company}</p>
-                <p className="text-body-md text-on-surface-variant mt-1 font-body-md">
-                  {exp.period}
-                </p>
-                <p className="text-body-md text-on-surface-variant mt-2 font-body-md">
-                  {exp.description}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div class="max-w-3xl mx-auto">
+          <div class="relative space-y-12">
+            <div class="absolute left-7.75 top-0 bottom-0 w-0.5 bg-white/5"></div>
+            {experiences.map((props) => (
+              <ExperienceCard key={props.title} props={props} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
