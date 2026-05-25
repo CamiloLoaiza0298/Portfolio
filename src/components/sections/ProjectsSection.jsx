@@ -30,19 +30,19 @@ const projects = [
 
 function ProjectCard({ project }) {
   return (
-    <div class={'group bg-surface-container-highest/20 rounded-xl overflow-hidden border border-white/5 hover:border-' + project.color + '-container/40 transition-all duration-500 flex flex-col'}>
-      <div class="h-56 overflow-hidden relative">
-        <img class={'w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100'} data-alt={'' + project.title + ' preview.'} src={project.imagePath} />
-        <div class={'absolute top-4 left-4 bg-' + project.color + '-container/20 backdrop-blur-md border border-' + project.color + '-container/30 px-3 py-1 rounded-full'}>
-          <span class={'font-code-sm text-code-sm text-' + project.color + '-container'}>{project.domain}</span>
+    <div className={'group bg-surface-container-highest/20 rounded-xl overflow-hidden border border-white/5 hover:border-' + project.color + '-container/40 transition-all duration-500 flex flex-col'}>
+      <div className="h-56 overflow-hidden relative">
+        <img className={'w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100'} data-alt={'' + project.title + ' preview.'} src={project.imagePath} />
+        <div className={'absolute top-4 left-4 bg-' + project.color + '-container/20 backdrop-blur-md border border-' + project.color + '-container/30 px-3 py-1 rounded-full'}>
+          <span className={'font-code-sm text-code-sm text-' + project.color + '-container'}>{project.domain}</span>
         </div>
       </div>
-      <div class="p-6 flex flex-col grow">
-        <h4 class="font-headline-md text-headline-md text-on-surface mb-3">{project.title}</h4>
-        <p class="font-body-md text-body-md text-on-surface-variant mb-6 grow">{project.description}</p>
-        <div class="flex flex-wrap gap-2">
+      <div className="p-6 flex flex-col grow">
+        <h4 className="font-headline-md text-headline-md text-on-surface mb-3">{project.title}</h4>
+        <p className="font-body-md text-body-md text-on-surface-variant mb-6 grow">{project.description}</p>
+        <div className="flex flex-wrap gap-2">
           {project.tech.map((tech, index) => (
-            <span class={'bg-' + project.color + '-container/10 text-' + project.color + '-container px-2 py-0.5 rounded font-code-sm text-[11px] uppercase'} key={index}>
+            <span className={'bg-' + project.color + '-container/10 text-' + project.color + '-container px-2 py-0.5 rounded font-code-sm text-[11px] uppercase'} key={index}>
               {tech}
             </span>
           ))}

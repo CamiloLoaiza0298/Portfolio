@@ -1,87 +1,167 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import SectionTitle from '../layout/SectionTitle';
+import { Linkedin } from 'lucide-react';
 
 export default function ContactSection() {
-  return (
-    <section id="contact" className="py-20 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-headline-lg font-bold text-center text-on-surface mb-12 font-headline-lg">
-          Get In Touch
-        </h2>
+  const formRef = useRef();
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState('');
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-          <div className="text-center p-6">
-            <Mail className="mx-auto text-primary mb-4" size={32} />
-            <h3 className="text-headline-md font-semibold text-on-surface mb-2 font-headline-md">
-              Email
-            </h3>
-            <p className="text-body-md text-on-surface-variant font-body-md">email@example.com</p>
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    const now = new Date();
+    const timeField = formRef.current.querySelector('input[name="time"]');
+    if (timeField) {
+      timeField.value = now.toLocaleString('en-US', {
+        dateStyle: 'full',
+        timeStyle: 'long',
+      });
+    }
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      formRef.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    )
+      .then(() => {
+        setSent(true);
+        formRef.current.reset();
+      })
+      .catch(() => {
+        setError('Error sending message. Please try again.');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  return (
+    <section id="contact" className="py-20 bg-surface-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionTitle>Contact</SectionTitle>
+
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT: Contact info */}
+          <div>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6 text-3xl">Let&apos;s Connect</h2>
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-10">
+              Do you have a challenging project in mind? I&apos;m available for collaborations
+              in custom hardware, high-performance software, or technology consulting.
+            </p>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+                  <span className="material-symbols-outlined">mail</span>
+                </div>
+                <div>
+                  <div className="font-code-sm text-code-sm text-on-surface-variant uppercase opacity-60">Email</div>
+                  <div className="font-body-md text-body-md text-on-surface">ingjcloaiza@gmail.com</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-secondary-fixed/10 flex items-center justify-center text-secondary-fixed">
+                  <span className="material-symbols-outlined">location_on</span>
+                </div>
+                <div>
+                  <div className="font-code-sm text-code-sm text-on-surface-variant uppercase opacity-60">Location</div>
+                  <div className="font-body-md text-body-md text-on-surface">Montreal, Canada</div>
+                </div>
+              </div>
+              
+              <div className="max-w-md mt-5 text-center mx-auto">
+                <a
+                  href="https://www.linkedin.com/in/juan-camilo-loaiza-alarcón-1702a628a"
+                  className="border border-primary-container/50 text-primary-container px-8 py-4 rounded font-label-md text-label-md hover:bg-primary-container/10 backdrop-blur-sm transition-all flex items-center gap-2 justify-center mx-auto"
+                  target="_blank"
+                >
+                  View My LinkedIn <Linkedin size={20}/>
+                </a>
+              </div>
+
+            </div>
           </div>
-          <div className="text-center p-6">
-            <Phone className="mx-auto text-primary mb-4" size={32} />
-            <h3 className="text-headline-md font-semibold text-on-surface mb-2 font-headline-md">
-              Phone
-            </h3>
-            <p className="text-body-md text-on-surface-variant font-body-md">+1 234 567 890</p>
-          </div>
-          <div className="text-center p-6">
-            <MapPin className="mx-auto text-primary mb-4" size={32} />
-            <h3 className="text-headline-md font-semibold text-on-surface mb-2 font-headline-md">
-              Location
-            </h3>
-            <p className="text-body-md text-on-surface-variant font-body-md">City, Country</p>
+
+          {/* RIGHT: Contact form */}
+          <div className="bg-surface p-8 rounded-2xl border border-white/5 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
+              <span className="material-symbols-outlined text-[120px]">terminal</span>
+            </div>
+
+            {sent ? (
+              <div className="relative z-10 flex flex-col items-center justify-center py-16 text-center">
+                <span className="material-symbols-outlined text-6xl text-primary-container mb-4">check_circle</span>
+                <h3 className="font-headline-md text-headline-md text-on-surface mb-2">Message Sent!</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Thank you for reaching out. I&apos;ll get back to you soon.
+                </p>
+                <button
+                  onClick={() => setSent(false)}
+                  className="mt-6 text-primary-container underline font-label-md text-label-md hover:opacity-80"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form ref={formRef} onSubmit={sendEmail} className="relative z-10 space-y-6">
+                <input type="hidden" name="time" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="user_name" className="font-label-md text-label-md text-on-surface-variant uppercase">Name</label>
+                    <input
+                      id="user_name"
+                      name="user_name"
+                      type="text"
+                      required
+                      placeholder="John Doe"
+                      className="w-full bg-surface-container-low border border-white/10 rounded-lg p-4 focus:outline-none focus:border-primary-container transition-colors text-on-surface"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="user_email" className="font-label-md text-label-md text-on-surface-variant uppercase">Email</label>
+                    <input
+                      id="user_email"
+                      name="user_email"
+                      type="email"
+                      required
+                      placeholder="john@example.com"
+                      className="w-full bg-surface-container-low border border-white/10 rounded-lg p-4 focus:outline-none focus:border-primary-container transition-colors text-on-surface"
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="font-label-md text-label-md text-on-surface-variant uppercase">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder="Tell me about your project..."
+                    rows="4"
+                    className="w-full bg-surface-container-low border border-white/10 rounded-lg p-4 focus:outline-none focus:border-primary-container transition-colors text-on-surface"
+                  ></textarea>
+                </div>
+
+                {error && (
+                  <p className="text-red-400 font-body-md text-body-md text-center">{error}</p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-primary-container text-on-primary-container py-4 rounded-lg font-label-md text-label-md hover:bg-primary-fixed transition-all shadow-[0_0_20px_rgba(0,240,255,0.2)] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? 'Sending...' : 'Transmit Message'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
 
-        <form className="max-w-xl mx-auto space-y-4">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-label-md font-medium text-on-surface-variant mb-1 font-label-md"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-surface-container text-on-surface"
-              placeholder="Your name"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-label-md font-medium text-on-surface-variant mb-1 font-label-md"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-surface-container text-on-surface"
-              placeholder="your@email.com"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-label-md font-medium text-on-surface-variant mb-1 font-label-md"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows="4"
-              className="w-full px-4 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-surface-container text-on-surface"
-              placeholder="Your message..."
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="w-full px-6 py-3 bg-primary text-on-primary rounded-lg hover:bg-primary-container transition-colors font-medium"
-          >
-            Send Message
-          </button>
-        </form>
       </div>
     </section>
   );

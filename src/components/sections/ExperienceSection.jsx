@@ -22,15 +22,15 @@ const experiences = [
 
 function ExperienceCard({ props }) {
   return (
-    <div class="relative pl-20 group">
-      <div class={'absolute left-0 top-0 w-16 h-16 bg-surface-container border border-white/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.1)] group-hover:border-' + props.color + '-container transition-colors'}>
-        <span class={'material-symbols-outlined text-' + props.color + '-container '}>{props.icon}</span>
+    <div className="relative pl-20 group">
+      <div className={'absolute left-0 top-0 w-16 h-16 bg-surface-container border border-white/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.1)] group-hover:border-' + props.color + '-container transition-colors'}>
+        <span className={'material-symbols-outlined text-' + props.color + '-container '}>{props.icon}</span>
       </div>
       <div>
-        <span class={'font-code-sm text-code-sm text-' + props.color + '-container mb-2 block'}>{props.period}</span>
-        <h4 class="font-headline-md text-headline-md text-on-surface">{props.title}</h4>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-1">{props.company}</p>
-        <p class="font-body-md text-body-md text-on-surface-variant mt-2"><span class="font-bold">Main responsibilities:</span> {props.description}</p>
+        <span className={'font-code-sm text-code-sm text-' + props.color + '-container mb-2 block'}>{props.period}</span>
+        <h4 className="font-headline-md text-headline-md text-on-surface">{props.title}</h4>
+        <p className="font-body-md text-body-md text-on-surface-variant mt-1">{props.company}</p>
+        <p className="font-body-md text-body-md text-on-surface-variant mt-2"><span className="font-bold">Main responsibilities:</span> {props.description}</p>
       </div>
     </div>
 
@@ -43,9 +43,9 @@ export default function ExperienceSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle>Experience</SectionTitle>
 
-        <div class="max-w-3xl mx-auto">
-          <div class="relative space-y-12">
-            <div class="absolute left-7.75 top-0 bottom-0 w-0.5 bg-white/5"></div>
+        <div className="max-w-3xl mx-auto">
+          <div className="relative space-y-12">
+            <div className="absolute left-7.75 top-0 bottom-0 w-0.5 bg-white/5"></div>
             {experiences.map((props) => (
               <ExperienceCard key={props.title} props={props} />
             ))}

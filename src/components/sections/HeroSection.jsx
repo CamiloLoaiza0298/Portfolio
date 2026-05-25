@@ -7,7 +7,7 @@ export default function HeroSection() {
       className="min-h-screen flex items-center bg-linear-to-br from-surface-dim to-surface pt-16"
     >
       {/* Background Pattern */}
-      <div class="absolute inset-0 z-0 opacity-20">
+      <div className="absolute inset-0 z-0 opacity-20">
         <div 
           className="absolute top-0 left-0 w-full h-full" 
           style={{
@@ -15,15 +15,15 @@ export default function HeroSection() {
             backgroundSize: '64px 64px'
           }}
         ></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-primary-container/50 rounded-full blur-[120px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-primary-container/50 rounded-full blur-[120px]"></div>
       </div>
 
       {/* Content */}
-      <div class="relative z-10 max-w-4xl items-center mx-auto">
+      <div className="relative z-10 max-w-4xl items-center mx-auto">
         
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed/10 border border-secondary-fixed/20 mb-6 mx-6">
-          <span class="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
-          <span class="font-code-sm text-code-sm text-secondary-fixed uppercase tracking-widest">System Active: Online</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed/10 border border-secondary-fixed/20 mb-6 mx-6">
+          <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
+          <span className="font-code-sm text-code-sm text-secondary-fixed uppercase tracking-widest">System Active: Online</span>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +38,7 @@ export default function HeroSection() {
               href="#projects"
               className="bg-primary-container text-on-primary-container px-8 py-4 rounded font-label-md text-label-md hover:brightness-110 transition-all flex items-center gap-2"
             >
-              View My Projects <span class="material-symbols-outlined">terminal</span>
+              View My Projects <span className="material-symbols-outlined">terminal</span>
             </a>
             <a
               href="#contact"

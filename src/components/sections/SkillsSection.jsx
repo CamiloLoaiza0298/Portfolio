@@ -8,15 +8,15 @@ const skills = [
 
 function SkillBox({ title, icon, iconColor, iconBackground, skills }) {
   return (
-    <div class={'bg-surface-container border border-white/5 p-8 rounded-xl backdrop-blur-md hover:border-primary-container/30 transition-all group'}>
-      <div class={'w-12 h-12 ' + iconColor + ' ' + iconBackground + '/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform'}>
-        <span class="material-symbols-outlined">{icon}</span>
+    <div className={'bg-surface-container border border-white/5 p-8 rounded-xl backdrop-blur-md hover:border-primary-container/30 transition-all group'}>
+      <div className={'w-12 h-12 ' + iconColor + ' ' + iconBackground + '/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform'}>
+        <span className="material-symbols-outlined">{icon}</span>
       </div>
-      <h3 class="font-headline-md text-headline-md text-on-surface mb-4">{title}</h3>
-      <ul class="space-y-3">
+      <h3 className="font-headline-md text-headline-md text-on-surface mb-4">{title}</h3>
+      <ul className="space-y-3">
         {skills.map((skill) => (
-          <li key={skill.name} class="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
-            <span class={'w-1.5 h-1.5 ' + iconBackground + ' rounded-full'}></span> {skill.name}
+          <li key={skill.name} className="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
+            <span className={'w-1.5 h-1.5 ' + iconBackground + ' rounded-full'}></span> {skill.name}
           </li>
         ))}
       </ul>
