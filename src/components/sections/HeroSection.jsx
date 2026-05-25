@@ -15,7 +15,7 @@ export default function HeroSection() {
             backgroundSize: '64px 64px'
           }}
         ></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-primary-container/10 rounded-full blur-[120px]"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 bg-primary-container/50 rounded-full blur-[120px]"></div>
       </div>
 
       {/* Content */}

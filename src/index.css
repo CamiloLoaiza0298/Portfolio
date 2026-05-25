@@ -3,6 +3,8 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-md: 1080px;
+
   --color-secondary-fixed: #68ff8b;
   --color-surface-container: #122131;
   --color-primary-container: #00f0ff;

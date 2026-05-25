@@ -30,12 +30,7 @@ export default function SkillsSection() {
       <div className="max-w-[1280px] mx-auto">
 
         <SectionTitle>My Skills</SectionTitle>
-
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary-container rounded-sm"></div>
-        </div>
-
+        
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Web & Frontend */}
