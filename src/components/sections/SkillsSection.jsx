@@ -27,7 +27,7 @@ function SkillBox({ title, icon, iconColor, iconBackground, skills }) {
 export default function SkillsSection() {
 
   return (
-    <section id="skills" className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low/50">
+    <section id="skills" className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low/50 scroll-mt-16">
       <div className="max-w-[1280px] mx-auto">
 
         <SectionTitle>My Skills</SectionTitle>

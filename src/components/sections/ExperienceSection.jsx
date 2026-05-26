@@ -20,17 +20,22 @@ const experiences = [
   },
 ];
 
-function ExperienceCard({ props }) {
+function ExperienceCard({ icon, title, company, period, description, color }) {
+  const colorClasses = {
+    borderClass: color === 'primary' ? 'group-hover:border-primary-container' : 'group-hover:border-secondary-container',
+    textClass: color === 'primary' ? 'text-primary-container' : 'text-secondary-container',
+  };
+
   return (
     <div className="relative pl-20 group">
-      <div className={'absolute left-0 top-0 w-16 h-16 bg-surface-container border border-white/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.1)] group-hover:border-' + props.color + '-container transition-colors'}>
-        <span className={'material-symbols-outlined text-' + props.color + '-container '}>{props.icon}</span>
+      <div className={`absolute left-0 top-0 w-16 h-16 bg-surface-container border border-white/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.1)] ${colorClasses.borderClass} transition-colors`}>
+        <span className={`material-symbols-outlined ${colorClasses.textClass}`}>{icon}</span>
       </div>
       <div>
-        <span className={'font-code-sm text-code-sm text-' + props.color + '-container mb-2 block'}>{props.period}</span>
-        <h4 className="font-headline-md text-headline-md text-on-surface">{props.title}</h4>
-        <p className="font-body-md text-body-md text-on-surface-variant mt-1">{props.company}</p>
-        <p className="font-body-md text-body-md text-on-surface-variant mt-2"><span className="font-bold">Main responsibilities:</span> {props.description}</p>
+        <span className={`font-code-sm text-code-sm ${colorClasses.textClass} mb-2 block`}>{period}</span>
+        <h4 className="font-headline-md text-headline-md text-on-surface">{title}</h4>
+        <p className="font-body-md text-body-md text-on-surface-variant mt-1">{company}</p>
+        <p className="font-body-md text-body-md text-on-surface-variant mt-2"><span className="font-bold">Main responsibilities:</span> {description}</p>
       </div>
     </div>
 
@@ -39,15 +44,15 @@ function ExperienceCard({ props }) {
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 bg-surface-dim">
+    <section id="experience" className="py-20 bg-surface-dim scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle>Experience</SectionTitle>
 
         <div className="max-w-3xl mx-auto">
           <div className="relative space-y-12">
             <div className="absolute left-7.75 top-0 bottom-0 w-0.5 bg-white/5"></div>
-            {experiences.map((props) => (
-              <ExperienceCard key={props.title} props={props} />
+            {experiences.map((exp) => (
+              <ExperienceCard key={exp.title} {...exp} />
             ))}
           </div>
         </div>

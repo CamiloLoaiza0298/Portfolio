@@ -1,6 +1,5 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import "../../index.css";
 
 const navItems = [
   { name: 'Skills', href: '#skills' },
@@ -24,7 +23,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4 gap-6">
+            <div className="ml-10 flex items-baseline gap-6">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -34,7 +33,7 @@ export default function Navbar() {
                   {item.name}
                 </a>
               ))}
-              <a href="/CV English - Juan Camilo Loaiza.pdf" download className="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+              <a href="/CV%20English%20-%20Juan%20Camilo%20Loaiza.pdf" download className="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
                 Download CV
               </a>
             </div>
@@ -65,7 +64,7 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
-            <a href="/CV English - Juan Camilo Loaiza.pdf" download className="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-lg hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+            <a href="/CV%20English%20-%20Juan%20Camilo%20Loaiza.pdf" download className="font-label-md text-label-md bg-primary-container text-on-primary-container px-6 py-2 rounded-lg hover:bg-primary-fixed transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
                 Download CV
             </a>
           </div>

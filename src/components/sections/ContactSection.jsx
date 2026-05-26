@@ -42,7 +42,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-surface-container">
+    <section id="contact" className="py-20 bg-surface-container scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle>Contact</SectionTitle>
 
@@ -78,7 +78,7 @@ export default function ContactSection() {
                 <a
                   href="https://www.linkedin.com/in/juan-camilo-loaiza-alarcón-1702a628a"
                   className="border border-primary-container/50 text-primary-container px-8 py-4 rounded font-label-md text-label-md hover:bg-primary-container/10 backdrop-blur-sm transition-all flex items-center gap-2 justify-center mx-auto"
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   View My LinkedIn <Linkedin size={20}/>
                 </a>
