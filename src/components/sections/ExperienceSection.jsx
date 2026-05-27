@@ -1,5 +1,5 @@
 import SectionTitle from '../layout/SectionTitle';
-import { Briefcase } from 'lucide-react';
+import useInView from '../../hooks/useInView';
 
 const experiences = [
   {
@@ -20,19 +20,21 @@ const experiences = [
   },
 ];
 
-function ExperienceCard({ icon, title, company, period, description, color }) {
-  const colorClasses = {
-    borderClass: color === 'primary' ? 'group-hover:border-primary-container' : 'group-hover:border-secondary-container',
-    textClass: color === 'primary' ? 'text-primary-container' : 'text-secondary-container',
-  };
+function ExperienceCard({ icon, title, company, period, description, color, index, inView }) {
+  const isPrimary = color === 'primary';
+  const borderHoverClass = isPrimary ? 'group-hover:border-primary-container' : 'group-hover:border-secondary-container';
+  const textClass = isPrimary ? 'text-primary-container' : 'text-secondary-container';
 
   return (
-    <div className="relative pl-20 group">
-      <div className={`absolute left-0 top-0 w-16 h-16 bg-surface-container border border-white/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.1)] ${colorClasses.borderClass} transition-colors`}>
-        <span className={`material-symbols-outlined ${colorClasses.textClass}`}>{icon}</span>
+    <div
+      className={`relative pl-20 group ${inView ? 'animate-fade-in-left' : 'opacity-0 -translate-x-5'}`}
+      style={{ animationDelay: inView ? `${0.15 + index * 0.2}s` : '0s' }}
+    >
+      <div className={`absolute left-0 top-0 w-16 h-16 bg-surface-container border border-white/10 rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.1)] ${borderHoverClass} transition-colors`}>
+        <span className={`material-symbols-outlined ${textClass}`}>{icon}</span>
       </div>
       <div>
-        <span className={`font-code-sm text-code-sm ${colorClasses.textClass} mb-2 block`}>{period}</span>
+        <span className={`font-code-sm text-code-sm ${textClass} mb-2 block`}>{period}</span>
         <h4 className="font-headline-md text-headline-md text-on-surface">{title}</h4>
         <p className="font-body-md text-body-md text-on-surface-variant mt-1">{company}</p>
         <p className="font-body-md text-body-md text-on-surface-variant mt-2"><span className="font-bold">Main responsibilities:</span> {description}</p>
@@ -43,16 +45,26 @@ function ExperienceCard({ icon, title, company, period, description, color }) {
 }
 
 export default function ExperienceSection() {
+  const [ref, inView] = useInView({ threshold: 0.1 });
+
   return (
     <section id="experience" className="py-20 bg-surface-dim scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle>Experience</SectionTitle>
+        <div ref={ref} className={inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}>
+          <SectionTitle>Experience</SectionTitle>
+        </div>
 
         <div className="max-w-3xl mx-auto">
           <div className="relative space-y-12">
-            <div className="absolute left-7.75 top-0 bottom-0 w-0.5 bg-white/5"></div>
-            {experiences.map((exp) => (
-              <ExperienceCard key={exp.title} {...exp} />
+            <div
+              className="absolute left-8 top-0 w-0.5 bg-gradient-to-b from-primary-container to-white/5"
+              style={{
+                height: inView ? '100%' : '0',
+                transition: 'height 0.8s ease-out 0.3s',
+              }}
+            ></div>
+            {experiences.map((exp, i) => (
+              <ExperienceCard key={exp.title} {...exp} index={i} inView={inView} />
             ))}
           </div>
         </div>

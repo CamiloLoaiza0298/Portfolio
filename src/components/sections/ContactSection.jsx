@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import SectionTitle from '../layout/SectionTitle';
+import useInView from '../../hooks/useInView';
 import { Linkedin } from 'lucide-react';
 
 export default function ContactSection() {
@@ -8,6 +9,8 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
+  const [leftRef, leftInView] = useInView({ threshold: 0.1 });
+  const [rightRef, rightInView] = useInView({ threshold: 0.1 });
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -44,11 +47,17 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-surface-container scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle>Contact</SectionTitle>
+        <div className={leftInView || rightInView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}>
+          <SectionTitle>Contact</SectionTitle>
+        </div>
 
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT: Contact info */}
-          <div>
+          <div
+            ref={leftRef}
+            className={leftInView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}
+            style={{ animationDelay: leftInView ? '0.1s' : '0s' }}
+          >
             <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6 text-3xl">Let&apos;s Connect</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant mb-10">
               Do you have a challenging project in mind? I&apos;m available for collaborations
@@ -88,7 +97,11 @@ export default function ContactSection() {
           </div>
 
           {/* RIGHT: Contact form */}
-          <div className="bg-surface p-8 rounded-2xl border border-white/5 relative overflow-hidden">
+          <div
+            ref={rightRef}
+            className={`bg-surface p-8 rounded-2xl border border-white/5 relative overflow-hidden ${rightInView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}`}
+            style={{ animationDelay: rightInView ? '0.3s' : '0s' }}
+          >
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <span className="material-symbols-outlined text-[120px]">terminal</span>
             </div>

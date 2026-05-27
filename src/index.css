@@ -136,3 +136,66 @@
 #root {
   width: 100%;
 }
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    translate: -20px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scale-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes line-grow {
+  to {
+    height: 100%;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.6s ease-out forwards;
+}
+
+.animate-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+.animate-line-grow {
+  height: 0;
+  animation: line-grow 0.8s ease-out forwards;
+}

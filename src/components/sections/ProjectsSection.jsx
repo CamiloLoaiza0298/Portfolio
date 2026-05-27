@@ -1,5 +1,6 @@
 import SectionTitle from '../layout/SectionTitle';
 import { Github } from 'lucide-react';
+import useInView from '../../hooks/useInView';
 
 const projects = [
   {
@@ -28,9 +29,12 @@ const projects = [
   },
 ];
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index, inView }) {
   return (
-    <div className="group bg-surface-container-highest/20 rounded-xl overflow-hidden border border-white/5 hover:border-primary-container/40 transition-all duration-500 flex flex-col">
+    <div
+      className={`group bg-surface-container-highest/20 rounded-xl overflow-hidden border border-white/5 hover:border-primary-container/60 transition-all duration-500 ease-out flex flex-col hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary-container/10 ${inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}`}
+      style={{ perspective: '1000px', animationDelay: inView ? `${index * 0.15}s` : '0s' }}
+    >
       <div className="h-56 overflow-hidden relative">
         <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" data-alt={'' + project.title + ' preview.'} src={project.imagePath} />
         <div className="absolute top-4 left-4 bg-primary-container/20 backdrop-blur-md border border-primary-container/30 px-3 py-1 rounded-full">
@@ -41,8 +45,8 @@ function ProjectCard({ project }) {
         <h4 className="font-headline-md text-headline-md text-on-surface mb-3">{project.title}</h4>
         <p className="font-body-md text-body-md text-on-surface-variant mb-6 grow">{project.description}</p>
         <div className="flex flex-wrap gap-2">
-          {project.tech.map((tech, index) => (
-            <span className="bg-primary-container/10 text-primary-container px-2 py-0.5 rounded font-code-sm text-[11px] uppercase" key={index}>
+          {project.tech.map((tech, i) => (
+            <span className="bg-primary-container/10 text-primary-container px-2 py-0.5 rounded font-code-sm text-[11px] uppercase" key={i}>
               {tech}
             </span>
           ))}
@@ -56,14 +60,18 @@ function ProjectCard({ project }) {
 
 
 export default function ProjectsSection() {
+  const [ref, inView] = useInView({ threshold: 0.1 });
+
   return (
     <section id="projects" className="py-20 bg-surface-dim scroll-mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle>My Projects</SectionTitle>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+        <div className={inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}>
+          <SectionTitle>My Projects</SectionTitle>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+          {projects.map((project, i) => (
+            <ProjectCard key={project.title} project={project} index={i} inView={inView} />
           ))}
         </div>
 
