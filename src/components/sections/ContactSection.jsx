@@ -79,7 +79,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="font-code-sm text-code-sm text-on-surface-variant uppercase opacity-60">Location</div>
-                  <div className="font-body-md text-body-md text-on-surface">Montreal, Canada</div>
+                  <div className="font-body-md text-body-md text-on-surface">Manizales, Caldas, Colombia</div>
                 </div>
               </div>
               
