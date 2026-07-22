@@ -1,31 +1,23 @@
 import SectionTitle from '../layout/SectionTitle';
 import { Github } from 'lucide-react';
 import useInView from '../../hooks/useInView';
+import { useLanguage } from '../../i18n';
 
-const projects = [
+const projectsData = [
   {
-    domain: 'Web App',
-    title: 'School Elections System',
-    imagePath: '/images/first-project.png',
-    description: 'A web application designed to allow students to cast their votes securely and efficiently, while providing administrators with tools to monitor voting activity, and generate real-time results.',
     tech: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
-    color: 'primary'
+    color: 'primary',
+    imagePath: '/images/first-project.png',
   },
   {
-    domain: 'E-commerce Web App',
-    title: '3D Printing Store',
-    imagePath: '/images/second-project.png',
-    description: 'A web application mockup designed for managing an online store, including product listings, shopping cart functionality, and a secure checkout process.',
     tech: ['HTML', 'CSS', 'JavaScript', 'MySQL', 'Selenium/Python', 'Katalon'],
-    color: 'primary'
+    color: 'primary',
+    imagePath: '/images/second-project.png',
   },
   {
-    domain: 'Web App',
-    title: 'Zona Torrida S.A.S. Website',
-    imagePath: '/images/third-project.png',
-    description: 'A modern website for Zona Torrida S.A.S., featuring a responsive design and easy navigation.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    color: 'primary'
+    color: 'primary',
+    imagePath: '/images/third-project.png',
   },
 ];
 
@@ -36,7 +28,7 @@ function ProjectCard({ project, index, inView }) {
       style={{ perspective: '1000px', animationDelay: inView ? `${index * 0.15}s` : '0s' }}
     >
       <div className="h-56 overflow-hidden relative">
-        <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" data-alt={'' + project.title + ' preview.'} src={project.imagePath} />
+        <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" data-alt={project.title + ' preview.'} src={project.imagePath} />
         <div className="absolute top-4 left-4 bg-primary-container/20 backdrop-blur-md border border-primary-container/30 px-3 py-1 rounded-full">
           <span className="font-code-sm text-code-sm text-primary-container">{project.domain}</span>
         </div>
@@ -56,17 +48,20 @@ function ProjectCard({ project, index, inView }) {
   )
 }
 
-
-
-
 export default function ProjectsSection() {
   const [ref, inView] = useInView({ threshold: 0.1 });
+  const { t } = useLanguage();
+
+  const projects = t('projects.items').map((item, i) => ({
+    ...item,
+    ...projectsData[i],
+  }));
 
   return (
     <section id="projects" className="py-20 bg-surface-dim scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <div className={inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}>
-          <SectionTitle>My Projects</SectionTitle>
+          <SectionTitle>{t('projects.title')}</SectionTitle>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -81,7 +76,7 @@ export default function ProjectsSection() {
             className="bg-primary-container text-on-primary-container px-4 py-3 rounded font-label-md text-label-md hover:brightness-110 transition-all flex items-center gap-2 justify-center mx-auto"
             target="_blank" rel="noopener noreferrer"
           >
-            View My GitHub <Github size={20}/>
+            {t('projects.viewGithub')} <Github size={20}/>
           </a>
         </div>
 

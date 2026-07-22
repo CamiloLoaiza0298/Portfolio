@@ -1,33 +1,10 @@
 import { useState } from 'react';
 import SectionTitle from '../layout/SectionTitle';
 import useInView from '../../hooks/useInView';
+import { useLanguage } from '../../i18n';
 
-const certifications = [
-  {
-    id: 1,
-    title: 'Web Applications for Everybody Specialization',
-    institution: 'University of Michigan',
-    year: '2024',
-    icon: 'verified',
-    image: '/images/webapp-cert.png',
-  },
-  {
-    id: 2,
-    title: 'Python for Everybody Specialization',
-    institution: 'University of Michigan',
-    year: '2024',
-    icon: 'workspace_premium',
-    image: '/images/python-cert.png',
-  },
-  {
-    id: 3,
-    title: 'Instalaciones Eléctricas Domiciliarias',
-    institution: 'Servicio Nacional de Aprendizaje SENA',
-    year: '2019',
-    icon: 'school',
-    image: '/images/electrical-cert.png',
-  },
-];
+const icons = ['verified', 'workspace_premium', 'school'];
+const images = ['/images/webapp-cert.png', '/images/python-cert.png', '/images/electrical-cert.png'];
 
 function CertificationCard({ icon, title, institution, year, index, inView, isSelected, onClick }) {
   return (
@@ -65,6 +42,14 @@ function CertificationCard({ icon, title, institution, year, index, inView, isSe
 export default function CertificationsSection() {
   const [ref, inView] = useInView({ threshold: 0.1 });
   const [selectedCert, setSelectedCert] = useState(null);
+  const { t } = useLanguage();
+
+  const certifications = t('certifications.items').map((item, i) => ({
+    ...item,
+    id: i + 1,
+    icon: icons[i],
+    image: images[i],
+  }));
 
   const handleSelect = (cert) => {
     setSelectedCert((prev) => (prev?.id === cert.id ? null : cert));
@@ -74,7 +59,7 @@ export default function CertificationsSection() {
     <section id="certifications" className="py-20 bg-surface-container-low/50 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref} className={inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}>
-          <SectionTitle>Courses & Certifications</SectionTitle>
+          <SectionTitle>{t('certifications.title')}</SectionTitle>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto">
@@ -125,7 +110,7 @@ export default function CertificationsSection() {
             ) : (
               <div className="w-full border border-dashed border-white/10 rounded-xl flex flex-col items-center justify-center py-20 text-on-surface-variant/50">
                 <span className="material-symbols-outlined text-5xl mb-4">image</span>
-                <p className="font-body-md text-body-md">Select a certification to view</p>
+                <p className="font-body-md text-body-md">{t('certifications.selectPlaceholder')}</p>
               </div>
             )}
           </div>

@@ -1,29 +1,8 @@
 import SectionTitle from '../layout/SectionTitle';
 import useInView from '../../hooks/useInView';
+import { useLanguage } from '../../i18n';
 
-const education = [
-  {
-    degree: 'LEA.CQ Computer Science Technology - Software Testing ACS',
-    school: 'Matrix College of Management, Techonology and Healtcare Inc.',
-    city: 'Montreal, Canada',
-    year: '2024 - 2026',
-    icon: 'computer',
-  },
-  {
-    degree: 'Electrical Enginnering Diploma',
-    school: 'Universidad Nacional de Colombia',
-    city: 'Manizales, Colombia',
-    year: '2016 - 2022',
-    icon: 'engineering',
-  },
-  {
-    degree: 'High School Diploma',
-    school: 'Colegio Seminario Redentorista',
-    city: 'Manizales, Colombia',
-    year: '2015',
-    icon: 'school',
-  },
-];
+const icons = ['computer', 'engineering', 'school'];
 
 function EducationCard({ icon, degree, school, city, year, index, inView }) {
   return (
@@ -46,12 +25,18 @@ function EducationCard({ icon, degree, school, city, year, index, inView }) {
 
 export default function EducationSection() {
   const [ref, inView] = useInView({ threshold: 0.1 });
+  const { t } = useLanguage();
+
+  const education = t('education.items').map((item, i) => ({
+    ...item,
+    icon: icons[i],
+  }));
 
   return (
     <section id="education" className="py-20 bg-surface-container-low/50 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref} className={inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}>
-          <SectionTitle>Education</SectionTitle>
+          <SectionTitle>{t('education.title')}</SectionTitle>
         </div>
 
         <div className="space-y-8 max-w-3xl mx-auto">

@@ -1,13 +1,22 @@
 import { ArrowDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
-
-const NAME = 'Camilo Loaiza';
-const SUBTITLE = 'Electrical Engineer & Computer Scientist passionate about the convergence between code and electronics. Designing the future from bit to silicon.';
+import { useLanguage } from '../../i18n';
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   const [nameIdx, setNameIdx] = useState(0);
   const [subIdx, setSubIdx] = useState(0);
   const [showButtons, setShowButtons] = useState(false);
+
+  const NAME = t('hero.name');
+  const SUBTITLE = t('hero.subtitle');
+  const GREETING = t('hero.greeting');
+
+  useEffect(() => {
+    setNameIdx(0);
+    setSubIdx(0);
+    setShowButtons(false);
+  }, [t]);
 
   useEffect(() => {
     const timers = [];
@@ -31,7 +40,7 @@ export default function HeroSection() {
     timers.push(setTimeout(() => setShowButtons(true), btnDelay));
 
     return () => timers.forEach(t => clearTimeout(t));
-  }, []);
+  }, [NAME, SUBTITLE]);
 
   return (
     <section
@@ -55,12 +64,12 @@ export default function HeroSection() {
         
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed/10 border border-secondary-fixed/20 mb-6 mx-6">
           <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
-          <span className="font-code-sm text-code-sm text-secondary-fixed uppercase tracking-widest">System Active: Online</span>
+          <span className="font-code-sm text-code-sm text-secondary-fixed uppercase tracking-widest">{t('hero.status')}</span>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-headline-lg text-6xl text-display-lg font-bold mb-4 font-headline-lg text-primary-container min-h-[1.2em]">
-            Hi, I'm{' '}
+            {GREETING}
             <span className="text-secondary-fixed">
               {NAME.slice(0, nameIdx)}
               {nameIdx < NAME.length && (
@@ -82,13 +91,13 @@ export default function HeroSection() {
               href="#projects"
               className="bg-primary-container text-on-primary-container px-8 py-4 rounded font-label-md text-label-md hover:brightness-110 transition-all flex items-center gap-2"
             >
-              View My Projects <span className="material-symbols-outlined">terminal</span>
+              {t('hero.viewProjects')} <span className="material-symbols-outlined">terminal</span>
             </a>
             <a
               href="#contact"
               className="border border-primary-container/50 text-primary-container px-8 py-4 rounded font-label-md text-label-md hover:bg-primary-container/10 backdrop-blur-sm transition-all"
             >
-              Contact Me
+              {t('hero.contactMe')}
             </a>
           </div>
 

@@ -1,7 +1,9 @@
 import { Github, Linkedin } from 'lucide-react';
+import { useLanguage } from '../../i18n';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/CamiloLoaiza0298', label: 'GitHub' },
@@ -14,7 +16,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-on-surface-variant">
-              &copy; {currentYear} Juan Camilo Loaiza. All rights reserved.
+              &copy; {currentYear} Juan Camilo Loaiza. {t('footer.rights')}
             </p>
           </div>
 

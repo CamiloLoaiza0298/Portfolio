@@ -1,0 +1,132 @@
+{
+  "nav": {
+    "brand": "Electrical Eng. &\n Computer Science Graduate",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "experience": "Experience",
+    "contact": "Contact",
+    "downloadCV": "Download CV",
+    "cvPath": "/CV English - Juan Camilo Loaiza.pdf"
+  },
+  "hero": {
+    "status": "System Active: Online",
+    "greeting": "Hi, I'm ",
+    "name": "Camilo Loaiza",
+    "subtitle": "Electrical Engineer & Computer Scientist passionate about the convergence between code and electronics. Designing the future from bit to silicon.",
+    "viewProjects": "View My Projects",
+    "contactMe": "Contact Me"
+  },
+  "skills": {
+    "title": "My Skills",
+    "frontend": "Web & Frontend",
+    "software": "Software & Logic",
+    "hardware": "Hardware & Engineering"
+  },
+  "projects": {
+    "title": "My Projects",
+    "viewGithub": "View My GitHub",
+    "items": [
+      {
+        "domain": "Web App",
+        "title": "School Elections System",
+        "description": "A web application designed to allow students to cast their votes securely and efficiently, while providing administrators with tools to monitor voting activity, and generate real-time results."
+      },
+      {
+        "domain": "E-commerce Web App",
+        "title": "3D Printing Store",
+        "description": "A web application mockup designed for managing an online store, including product listings, shopping cart functionality, and a secure checkout process."
+      },
+      {
+        "domain": "Web Page",
+        "title": "Zona Torrida S.A.S. Website",
+        "description": "A modern website for Zona Torrida S.A.S., featuring a responsive design and easy navigation."
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "items": [
+      {
+        "degree": "LEA.CQ Computer Science Technology - Software Testing ACS",
+        "school": "Matrix College of Management, Techonology and Healtcare Inc.",
+        "city": "Montreal, Canada",
+        "year": "2024 - 2026"
+      },
+      {
+        "degree": "Electrical Enginnering Diploma",
+        "school": "Universidad Nacional de Colombia",
+        "city": "Manizales, Colombia",
+        "year": "2016 - 2022"
+      },
+      {
+        "degree": "High School Diploma",
+        "school": "Colegio Seminario Redentorista",
+        "city": "Manizales, Colombia",
+        "year": "2015"
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Courses & Certifications",
+    "selectPlaceholder": "Select a certification to view",
+    "items": [
+      {
+        "title": "Web Applications for Everybody Specialization",
+        "institution": "University of Michigan",
+        "year": "2024"
+      },
+      {
+        "title": "Python for Everybody Specialization",
+        "institution": "University of Michigan",
+        "year": "2024"
+      },
+      {
+        "title": "Instalaciones Electricas Domiciliarias",
+        "institution": "Servicio Nacional de Aprendizaje SENA",
+        "year": "2019"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "responsibilities": "Main responsibilities:",
+    "items": [
+      {
+        "title": "Resident Site Engineer",
+        "company": "Conercom S.A.S.",
+        "period": "Sept. 2023 - Dec. 2023",
+        "description": "Supervise and manage electrical projects on construction sites or industrial installations, ensuring that electrical systems are built according to specifications, comply with regulations and safety standards, and resolving technical issues during the construction process."
+      },
+      {
+        "title": "Production Engineer",
+        "company": "Noatec S.A.S.",
+        "period": "July 2022 - Aug. 2023",
+        "description": "Analyze, design, and modify manufacturing methods, techniques, tools, and equipment using technology to improve product quality and reduce manufacturing time and costs."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Let's Connect",
+    "description": "Interested in working together? I'm looking for opportunities to join a collaborative team where I can apply my skills in software development, QA, and web technologies while continuing to grow professionally.",
+    "email": "Email",
+    "location": "Location",
+    "viewLinkedin": "View My LinkedIn",
+    "messageSent": "Message Sent!",
+    "thankYou": "Thank you for reaching out. I'll get back to you soon.",
+    "sendAnother": "Send another message",
+    "name": "Name",
+    "namePlaceholder": "John Doe",
+    "emailLabel": "Email",
+    "emailPlaceholder": "john@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "sending": "Sending...",
+    "sendButton": "Send Message",
+    "error": "Error sending message. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

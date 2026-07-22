@@ -1,0 +1,132 @@
+{
+  "nav": {
+    "brand": "Ing. Électrician &\n Diplômé en Informatique",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "education": "Formation",
+    "experience": "Expérience",
+    "contact": "Contact",
+    "downloadCV": "Télécharger CV",
+    "cvPath": "/CV English - Juan Camilo Loaiza.pdf"
+  },
+  "hero": {
+    "status": "Système Actif: En ligne",
+    "greeting": "Bonjour, je suis ",
+    "name": "Camilo Loaiza",
+    "subtitle": "Ingénieur Électricien et Informaticien passionné par la convergence entre le code et l'électronique. Concevoir le futur du bit au silicium.",
+    "viewProjects": "Voir Mes Projets",
+    "contactMe": "Contactez-moi"
+  },
+  "skills": {
+    "title": "Mes Compétences",
+    "frontend": "Web & Frontend",
+    "software": "Programmation & Outils",
+    "hardware": "Hardware & Ingénierie"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "viewGithub": "Voir Mon GitHub",
+    "items": [
+      {
+        "domain": "Application Web",
+        "title": "Système d'Élections Scolaires",
+        "description": "Une application web conçue pour permettre aux étudiants de voter de manière sécurisée et efficace, tout en fournissant aux administrateurs des outils pour surveiller l'activité de vote et générer des résultats en temps réel."
+      },
+      {
+        "domain": "Application Web E-commerce",
+        "title": "Boutique d'Impression 3D",
+        "description": "Un prototype d'application web conçu pour la gestion d'un magasin en ligne, incluant le catalogue de produits, le panier d'achat et un processus de paiement sécurisé."
+      },
+      {
+        "domain": "Application Web",
+        "title": "Site Web Zona Torrida S.A.S.",
+        "description": "Un site web moderne pour Zona Torrida S.A.S., avec un design responsive et une navigation facile."
+      }
+    ]
+  },
+  "education": {
+    "title": "Formation",
+    "items": [
+      {
+        "degree": "LEA.CQ Computer Science Technology - Software Testing ACS",
+        "school": "Matrix College of Management, Technology and Healthcare Inc.",
+        "city": "Montréal, Canada",
+        "year": "2024 - 2026"
+      },
+      {
+        "degree": "Diplôme d'Ingénieur Électricien",
+        "school": "Universidad Nacional de Colombia",
+        "city": "Manizales, Colombie",
+        "year": "2016 - 2022"
+      },
+      {
+        "degree": "Diplôme du Lycée",
+        "school": "Colegio Seminario Redentorista",
+        "city": "Manizales, Colombie",
+        "year": "2015"
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Cours & Certifications",
+    "selectPlaceholder": "Sélectionnez une certification pour voir",
+    "items": [
+      {
+        "title": "Web Applications for Everybody Specialization",
+        "institution": "Université du Michigan",
+        "year": "2024"
+      },
+      {
+        "title": "Python for Everybody Specialization",
+        "institution": "Université du Michigan",
+        "year": "2024"
+      },
+      {
+        "title": "Instalaciones Eléctricas Domiciliarias",
+        "institution": "Servicio Nacional de Aprendizaje SENA",
+        "year": "2019"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Expérience",
+    "responsibilities": "Principales responsabilités:",
+    "items": [
+      {
+        "title": "Ingénieur de Site Résident",
+        "company": "Conercom S.A.S.",
+        "period": "Sept. 2023 - Déc. 2023",
+        "description": "Superviser et gérer des projets électriques sur des chantiers de construction ou des installations industrielles, en veillant à ce que les systèmes électriques soient construits selon les spécifications, respectent les réglementations et les normes de sécurité, et résoudre les problèmes techniques pendant le processus de construction."
+      },
+      {
+        "title": "Ingénieur de Production",
+        "company": "Noatec S.A.S.",
+        "period": "Juil. 2022 - Août 2023",
+        "description": "Analyser, concevoir et modifier les méthodes de fabrication, techniques, outils et équipements en utilisant la technologie pour améliorer la qualité des produits et réduire le temps et les coûts de fabrication."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Connectons-nous",
+    "description": "Intéressé à travailler ensemble ? Je cherche des opportunités pour rejoindre une équipe collaborative où je peux appliquer mes compétences en développement logiciel, assurance qualité et technologies web tout en continuant à évoluer professionnellement.",
+    "email": "Email",
+    "location": "Localisation",
+    "viewLinkedin": "Voir Mon LinkedIn",
+    "messageSent": "Message Envoyé!",
+    "thankYou": "Merci de m'avoir contacté. Je vous répondrai bientôt.",
+    "sendAnother": "Envoyer un autre message",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "emailLabel": "Email",
+    "emailPlaceholder": "vous@exemple.com",
+    "message": "Message",
+    "messagePlaceholder": "Parlez-moi de votre projet...",
+    "sending": "Envoi...",
+    "sendButton": "Envoyer le Message",
+    "error": "Erreur lors de l'envoi du message. Veuillez réessayer."
+  },
+  "footer": {
+    "rights": "Tous droits réservés."
+  }
+}
