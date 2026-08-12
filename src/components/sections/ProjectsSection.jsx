@@ -1,7 +1,23 @@
 import SectionTitle from '../layout/SectionTitle';
+import ProjectCarousel from '../layout/ProjectCarousel';
 import { Github } from 'lucide-react';
+import { SiReact, SiJavascript, SiTailwindcss, SiVite, SiPython, SiFlask, SiSqlite, SiSelenium } from 'react-icons/si';
 import useInView from '../../hooks/useInView';
 import { useLanguage } from '../../i18n';
+
+const portfolioTech = [
+  { name: 'React', Icon: SiReact },
+  { name: 'JavaScript', Icon: SiJavascript },
+  { name: 'Tailwind CSS', Icon: SiTailwindcss },
+  { name: 'Vite', Icon: SiVite },
+  { name: 'Python', Icon: SiPython },
+  { name: 'Flask', Icon: SiFlask },
+  { name: 'SQLite', Icon: SiSqlite },
+  { name: 'PyInstaller', Icon: null },
+  { name: 'Inno Setup', Icon: null },
+  { name: 'Selenium', Icon: SiSelenium },
+  { name: 'Katalon', Icon: null },
+];
 
 const projectsData = [
   {
@@ -57,11 +73,48 @@ export default function ProjectsSection() {
     ...projectsData[i],
   }));
 
+  const carouselSlides = t('projects.carousel').map((item, i) => ({
+    image: `/images/votaciones${i + 1}.png`,
+    caption: item.caption,
+  }));
+
   return (
     <section id="projects" className="py-20 bg-surface-dim scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <div className={inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}>
           <SectionTitle>{t('projects.title')}</SectionTitle>
+        </div>
+
+        <div className="mb-5">
+          <p className="text-body-lg text-on-surface-variant text-center mb-8">
+            {t('projects.carouselTitle')}
+          </p>
+          <ProjectCarousel slides={carouselSlides} />
+        </div>
+
+        <p className="text-body-md text-on-surface-variant text-center mb-2 font-bold">
+          {t('projects.technologies')}
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {portfolioTech.map((tech) => (
+            <span
+              key={tech.name}
+              className="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full font-code-sm text-[12px] flex items-center gap-1.5 hover:bg-primary-container/20 transition-all duration-300 hover:scale-105"
+            >
+              {tech.Icon && <tech.Icon className="w-3.5 h-3.5" />}
+              {tech.name}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-px grow bg-white/50"></div>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface text-2xl shrink-0">
+            {t('projects.subtitle')}
+          </h2>
+          <div className="h-px grow bg-white/50 relative">
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

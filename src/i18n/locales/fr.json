@@ -26,10 +26,22 @@
   "projects": {
     "title": "Mes Projets",
     "viewGithub": "Voir Mon GitHub",
+    "carouselTitle": "Voici un aperçu de mon projet le plus récent — une application web d'élections scolaires pour les institutions colombiennes, avec base de données en temps réel et connectivité réseau local.",
+    "carousel": [
+      { "caption": "Page d'accueil sécurisée offrant un accès aux enseignants uniquement par mot de passe et identifiant les étudiants par leur numéro de document." },
+      { "caption": "Interface de vote étudiant affichant les photos, noms et propositions des candidats pour chaque poste, avec option de vote blanc." },
+      { "caption": "Panneau d'administration pour gérer les données de l'institution, les paramètres d'élection et les identifiants, avec archive des élections passées." },
+      { "caption": "Onglet de gestion des étudiants permettant aux administrateurs de consulter, modifier, supprimer et importer des enregistrements via CSV." },
+      { "caption": "Onglet des candidats pour gérer les profils des candidats et l'affectation aux postes." },
+      { "caption": "Tableau de bord des résultats présentant les décomptes de votes en temps réel et des rapports exportables." },
+      { "caption": "Écran de confirmation informant les étudiants que leur vote a été enregistré, avec redirection automatique vers la page d'accueil après quelques secondes." }
+    ],
+    "technologies": "Construit avec:",
+    "subtitle": "Plus de Projets",
     "items": [
       {
         "domain": "Application Web",
-        "title": "Système d'Élections Scolaires",
+        "title": "Système d'Élections Scolaires - Beta",
         "description": "Une application web conçue pour permettre aux étudiants de voter de manière sécurisée et efficace, tout en fournissant aux administrateurs des outils pour surveiller l'activité de vote et générer des résultats en temps réel."
       },
       {

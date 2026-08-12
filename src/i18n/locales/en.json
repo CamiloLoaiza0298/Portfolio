@@ -26,10 +26,22 @@
   "projects": {
     "title": "My Projects",
     "viewGithub": "View My GitHub",
+    "carouselTitle": "Here's a look at my most recent project — a school elections web application for Colombian institutions, featuring a real-time database and local network connectivity.",
+    "carousel": [
+      { "caption": "Secure homepage that provides teacher-only access via password and identifies students by their ID." },
+      { "caption": "Student voting interface displaying candidates' photos, names, and proposals for each position, with an option for blank votes." },
+      { "caption": "Administrative panel for managing institution details, election settings, and credentials, with an archive of past elections." },
+      { "caption": "Students management tab allowing admins to view, edit, delete and import student records via CSV." },
+      { "caption": "Candidates tab for managing candidate profiles and position assignments." },
+      { "caption": "Results dashboard presenting real-time vote tallies and exportable reports." },
+      { "caption": "Confirmation screen informing students their vote was recorded, with automatic redirect to the homepage after a few seconds." }
+    ],
+    "technologies": "Built with:",
+    "subtitle": "More Projects",
     "items": [
       {
         "domain": "Web App",
-        "title": "School Elections System",
+        "title": "School Elections System - Beta",
         "description": "A web application designed to allow students to cast their votes securely and efficiently, while providing administrators with tools to monitor voting activity, and generate real-time results."
       },
       {
