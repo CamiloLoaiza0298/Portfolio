@@ -72,6 +72,12 @@
         "year": "2016 - 2022"
       },
       {
+        "degree": "International Academic Exchange",
+        "school": "Université de Picardie Jules Verne",
+        "city": "Amiens, France",
+        "year": "2020"
+      },
+      {
         "degree": "High School Diploma",
         "school": "Colegio Seminario Redentorista",
         "city": "Manizales, Colombia",
@@ -115,6 +121,12 @@
         "company": "Noatec S.A.S.",
         "period": "July 2022 - Aug. 2023",
         "description": "Analyze, design, and modify manufacturing methods, techniques, tools, and equipment using technology to improve product quality and reduce manufacturing time and costs."
+      },
+      {
+        "title": "Electrical Engineering Intern",
+        "company": "Municipality of Pereira",
+        "period": "Aug. 2020 - Dec. 2020",
+        "description": "Develop, review, and modify electrical designs for municipal projects, while supporting the evaluation of technical documentation and specifications for public bidding processes. Conduct site visits to monitor construction progress and ensure compliance with project requirements and technical standards."
       }
     ]
   },

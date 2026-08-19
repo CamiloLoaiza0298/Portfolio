@@ -2,12 +2,15 @@ import SectionTitle from '../layout/SectionTitle';
 import useInView from '../../hooks/useInView';
 import { useLanguage } from '../../i18n';
 
-const icons = ['bolt', 'engineering'];
+const icons = ['bolt', 'engineering', 'interactive_space'];
 
 function ExperienceCard({ icon, title, company, period, description, color, index, inView, responsibilitiesLabel }) {
   const isPrimary = color === 'primary';
-  const borderHoverClass = isPrimary ? 'group-hover:border-primary-container' : 'group-hover:border-secondary-container';
-  const textClass = isPrimary ? 'text-primary-container' : 'text-secondary-container';
+  // const borderHoverClass = isPrimary ? 'group-hover:border-primary-container' : 'group-hover:border-secondary-container';
+  // const textClass = isPrimary ? 'text-primary-container' : 'text-secondary-container';
+
+  const borderHoverClass = 'group-hover:border-tertiary-container';
+  const textClass = 'text-tertiary-container';
 
   return (
     <div
@@ -18,8 +21,8 @@ function ExperienceCard({ icon, title, company, period, description, color, inde
         <span className={`material-symbols-outlined ${textClass}`}>{icon}</span>
       </div>
       <div>
-        <span className={`font-code-sm text-code-sm ${textClass} mb-2 block`}>{period}</span>
-        <h4 className="font-headline-md text-headline-md text-on-surface">{title}</h4>
+        <span className={`font-code-sm text-code-sm text-primary-container mb-2 block`}>{period}</span>
+        <h4 className="font-headline-md text-headline-md text-secondary-container">{title}</h4>
         <p className="font-body-md text-body-md text-on-surface-variant mt-1">{company}</p>
         <p className="font-body-md text-body-md text-on-surface-variant mt-2"><span className="font-bold">{responsibilitiesLabel}</span> {description}</p>
       </div>
@@ -48,7 +51,7 @@ export default function ExperienceSection() {
         <div className="max-w-3xl mx-auto">
           <div className="relative space-y-12">
             <div
-              className="absolute left-8 top-0 w-0.5 bg-gradient-to-b from-primary-container to-white/5"
+              className="absolute left-8 top-0 w-0.5 bg-linear-to-b from-tertiary-container to-white/5"
               style={{
                 height: inView ? '100%' : '0',
                 transition: 'height 0.8s ease-out 0.3s',

@@ -72,6 +72,12 @@
         "year": "2016 - 2022"
       },
       {
+        "degree": "Échange universitaire international",
+        "school": "Université de Picardie Jules Verne",
+        "city": "Amiens, France",
+        "year": "2020"
+      },
+      {
         "degree": "Diplôme du Lycée",
         "school": "Colegio Seminario Redentorista",
         "city": "Manizales, Colombie",
@@ -115,6 +121,12 @@
         "company": "Noatec S.A.S.",
         "period": "Juil. 2022 - Août 2023",
         "description": "Analyser, concevoir et modifier les méthodes de fabrication, techniques, outils et équipements en utilisant la technologie pour améliorer la qualité des produits et réduire le temps et les coûts de fabrication."
+      },
+      {
+        "title": "Stagiaire en Génie Électrique",
+        "company": "Municipalité de Pereira",
+        "period": "Août 2020 - Déc. 2020",
+        "description": "Développer, réviser et modifier les conceptions électriques pour les projets municipaux, tout en soutenant l'évaluation de la documentation technique et des spécifications pour les processus d'appel d'offres publics. Effectuer des visites sur site pour surveiller l'avancement de la construction et assurer le respect des exigences du projet et des normes techniques."
       }
     ]
   },

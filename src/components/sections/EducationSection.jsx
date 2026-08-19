@@ -2,7 +2,7 @@ import SectionTitle from '../layout/SectionTitle';
 import useInView from '../../hooks/useInView';
 import { useLanguage } from '../../i18n';
 
-const icons = ['computer', 'engineering', 'school'];
+const icons = ['computer', 'engineering', 'travel', 'school'];
 
 function EducationCard({ icon, degree, school, city, year, index, inView }) {
   return (
@@ -42,7 +42,7 @@ export default function EducationSection() {
         <div className="space-y-8 max-w-3xl mx-auto">
           <div className="relative space-y-12">
             <div
-              className="absolute left-8 top-0 w-0.5 bg-gradient-to-b from-secondary-container to-white/5"
+              className="absolute left-8 top-0 w-0.5 bg-linear-to-b from-secondary-container to-white/5"
               style={{
                 height: inView ? '100%' : '0',
                 transition: 'height 0.8s ease-out 0.3s',

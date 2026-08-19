@@ -4,8 +4,8 @@ import { useLanguage } from '../../i18n';
 
 const skillsData = [
     { icon: 'html', iconColor: 'text-primary-container', iconBackground: 'bg-primary-fixed', titleKey: 'skills.frontend', skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS'] },
-    { icon: 'data_object', iconColor: 'text-secondary-container', iconBackground: 'bg-secondary-fixed', titleKey: 'skills.software', skills: ['Python', 'Java', 'MySQL', 'Git', 'Testing & Debugging: Selenium, Katalon'] },
-    { icon: 'memory', iconColor: 'text-tertiary-container', iconBackground: 'bg-tertiary-fixed', titleKey: 'skills.hardware', skills: ['Electronics', '3D Modeling', '3D Printing', 'Computer Architecture'] },
+    { icon: 'data_object', iconColor: 'text-secondary-container', iconBackground: 'bg-secondary-fixed', titleKey: 'skills.software', skills: ['Python', 'PHP', 'Java', 'Database: MySQL, PostgreSQL, SQLite', 'Git', 'Testing & Debugging: Selenium, Katalon'] },
+    { icon: 'memory', iconColor: 'text-tertiary-container', iconBackground: 'bg-white', titleKey: 'skills.hardware', skills: ['Electronics', '3D Modeling', '3D Printing', 'Computer Architecture', 'AutoCAD', 'DiaLux Evo'] },
   ];
 
 function SkillBox({ title, icon, iconColor, iconBackground, skills, index, inView }) {
