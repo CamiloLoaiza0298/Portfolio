@@ -3,15 +3,15 @@ import useInView from '../../hooks/useInView';
 import { useLanguage } from '../../i18n';
 
 const skillsData = [
-    { icon: 'web', iconColor: 'text-primary-container', iconBackground: 'bg-primary-fixed/10', titleKey: 'skills.frontend', skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS'] },
-    { icon: 'data_object', iconColor: 'text-secondary-container', iconBackground: 'bg-secondary-fixed/10', titleKey: 'skills.software', skills: ['Python', 'PHP', 'Java', 'Database: MySQL, PostgreSQL, SQLite', 'Git', 'Testing & Debugging: Selenium, Katalon'] },
-    { icon: 'memory', iconColor: 'text-tertiary-container', iconBackground: 'bg-white/10', titleKey: 'skills.hardware', skills: ['Electronics', '3D Modeling', '3D Printing', 'Computer Architecture', 'AutoCAD', 'DiaLux Evo'] },
+    { icon: 'web', iconColor: 'text-primary-container', bulletColor: 'bg-primary-container', iconBackground: 'bg-primary-fixed/10', titleKey: 'skills.frontend', skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS'] },
+    { icon: 'data_object', iconColor: 'text-secondary-container', bulletColor: 'bg-secondary-container', iconBackground: 'bg-secondary-fixed/10', titleKey: 'skills.software', skills: ['Python', 'Node.js', 'PHP', 'Java', 'Database: MySQL, PostgreSQL, SQLite', 'Git', 'Testing & Debugging: Selenium, Katalon, JMeter'] },
+    { icon: 'memory', iconColor: 'text-tertiary-container', bulletColor: 'bg-tertiary-container', iconBackground: 'bg-white/10', titleKey: 'skills.hardware', skills: ['Electronics', '3D Modeling (Fusion 360)', '3D Printing', 'Computer Architecture', 'AutoCAD', 'DiaLux Evo'] },
   ];
 
-function SkillBox({ title, icon, iconColor, iconBackground, skills, index, inView }) {
+function SkillBox({ title, icon, iconColor, bulletColor, iconBackground, skills, index, inView }) {
   return (
     <div
-      className={`bg-surface-container border border-white/5 p-8 rounded-xl backdrop-blur-md hover:border-primary-container/30 transition-all group hover:scale-[1.02] hover:shadow-xl ${inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}`}
+      className={`bg-surface-container border border-white/5 p-8 rounded-xl backdrop-blur-md hover:border-primary-container/30 transition-all group hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] ${inView ? 'animate-fade-in-up' : 'opacity-0 translate-y-6'}`}
       style={{ animationDelay: inView ? `${index * 0.15}s` : '0s' }}
     >
       <div className={'w-12 h-12 ' + iconColor + ' ' + iconBackground + ' rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform'}>
@@ -21,7 +21,7 @@ function SkillBox({ title, icon, iconColor, iconBackground, skills, index, inVie
       <ul className="space-y-3">
         {skills.map((skill) => (
           <li key={skill} className="flex items-center gap-2 text-on-surface-variant font-code-sm text-code-sm">
-            <span className={'w-1.5 h-1.5 ' + iconBackground.replace("/10", "") + ' rounded-full'}></span> {skill}
+            <span className={`w-1.5 h-1.5 ${bulletColor} rounded-full`}></span> {skill}
           </li>
         ))}
       </ul>
@@ -43,7 +43,7 @@ export default function SkillsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {skillsData.map((skill, i) => (
-            <SkillBox key={skill.titleKey} title={t(skill.titleKey)} icon={skill.icon} iconColor={skill.iconColor} iconBackground={skill.iconBackground} skills={skill.skills} index={i} inView={inView} />
+            <SkillBox key={skill.titleKey} title={t(skill.titleKey)} icon={skill.icon} iconColor={skill.iconColor} bulletColor={skill.bulletColor} iconBackground={skill.iconBackground} skills={skill.skills} index={i} inView={inView} />
           ))}
         </div>
       </div>
