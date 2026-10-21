@@ -26,18 +26,40 @@
   "projects": {
     "title": "My Projects",
     "viewGithub": "View My GitHub",
-    "carouselTitle": "Here's a look at my most recent project — a school elections web application for Colombian institutions, featuring a real-time database and local network connectivity.",
-    "carousel": [
-      { "caption": "Secure homepage that provides teacher-only access via password and identifies students by their ID." },
-      { "caption": "Student voting interface displaying candidates' photos, names, and proposals for each position, with an option for blank votes." },
-      { "caption": "Administrative panel for managing institution details, election settings, and credentials, with an archive of past elections." },
-      { "caption": "Students management tab allowing admins to view, edit, delete and import student records via CSV." },
-      { "caption": "Candidates tab for managing candidate profiles and position assignments." },
-      { "caption": "Results dashboard presenting real-time vote tallies and exportable reports." },
-      { "caption": "Confirmation screen informing students their vote was recorded, with automatic redirect to the homepage after a few seconds." }
-    ],
     "technologies": "Built with:",
     "subtitle": "More Projects",
+    "featured": {
+      "elecciones": {
+        "buttonLabel": "School Elections Web App",
+        "logo": "/images/logos/elecciones-logo.png",
+        "carouselTitle": "Here's a look at my most recent project — a school elections web application for Colombian institutions, featuring a real-time database and local network connectivity.",
+        "carousel": [
+          { "caption": "Secure homepage that provides teacher-only access via password and identifies students by their ID." },
+          { "caption": "Student voting interface displaying candidates' photos, names, and proposals for each position, with an option for blank votes." },
+          { "caption": "Administrative panel for managing institution details, election settings, and credentials, with an archive of past elections." },
+          { "caption": "Students management tab allowing admins to view, edit, delete and import student records via CSV." },
+          { "caption": "Candidates tab for managing candidate profiles and position assignments." },
+          { "caption": "Results dashboard presenting real-time vote tallies and exportable reports." },
+          { "caption": "Confirmation screen informing students their vote was recorded, with automatic redirect to the homepage after a few seconds." }
+        ],
+        "tech": ["Python", "Flask", "SQLite", "HTML", "CSS", "JavaScript", "PyInstaller", "Inno Setup Compiler", "Selenium", "Katalon"]
+      },
+      "atmosfera": {
+        "buttonLabel": "Atmósfera Lab - Terrain Catalog",
+        "logo": "/images/logos/atmosfera-logo.png",
+        "carouselTitle": "A terrain catalog web application designed for browsing and managing land listings with detailed property information and interactive search.",
+        "carousel": [
+          { "caption": "Home page with a password prompt for data protection." },
+          { "caption": "Main page with search filters for terrains, options to save and load presets, and an interactive map showing each property's center point." },
+          { "caption": "List of terrains filtered by the selected criteria, with key information and options to open the listing, view details, and show the property on the map." },
+          { "caption": "Terrain details page with a location map, dimensions, and an extensive list of features. Includes options to export the information as a PDF and edit it." },
+          { "caption": "Exported PDF with detailed information about the terrain." },
+          { "caption": "Information update panel with advanced options." },
+          { "caption": "Contacts panel for quick access to potential collaborators, engineers, architects, geologists, and others." }
+        ],
+        "tech": ["Python", "React", "TypeScript", "JavaScript", "Electron", "FastAPI", "Uvicorn", "Shapely", "GeoPandas", "Tailwind CSS", "Vite", "SQLite", "Git"]
+      }
+    },
     "items": [
       {
         "domain": "Web App",

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import SectionTitle from '../layout/SectionTitle';
 import ProjectCarousel from '../layout/ProjectCarousel';
 import { Github } from 'lucide-react';
@@ -5,19 +6,16 @@ import { SiReact, SiJavascript, SiTailwindcss, SiVite, SiPython, SiFlask, SiSqli
 import useInView from '../../hooks/useInView';
 import { useLanguage } from '../../i18n';
 
-const portfolioTech = [
-  { name: 'React', Icon: SiReact },
-  { name: 'JavaScript', Icon: SiJavascript },
-  { name: 'Tailwind CSS', Icon: SiTailwindcss },
-  { name: 'Vite', Icon: SiVite },
-  { name: 'Python', Icon: SiPython },
-  { name: 'Flask', Icon: SiFlask },
-  { name: 'SQLite', Icon: SiSqlite },
-  { name: 'PyInstaller', Icon: null },
-  { name: 'Inno Setup', Icon: null },
-  { name: 'Selenium', Icon: SiSelenium },
-  { name: 'Katalon', Icon: null },
-];
+const iconMap = {
+  'React': SiReact,
+  'JavaScript': SiJavascript,
+  'Tailwind CSS': SiTailwindcss,
+  'Vite': SiVite,
+  'Python': SiPython,
+  'Flask': SiFlask,
+  'SQLite': SiSqlite,
+  'Selenium': SiSelenium,
+};
 
 const projectsData = [
   {
@@ -67,16 +65,23 @@ function ProjectCard({ project, index, inView }) {
 export default function ProjectsSection() {
   const [ref, inView] = useInView({ threshold: 0.1 });
   const { t } = useLanguage();
+  const [selectedProject, setSelectedProject] = useState('atmosfera');
 
   const projects = t('projects.items').map((item, i) => ({
     ...item,
     ...projectsData[i],
   }));
 
-  const carouselSlides = t('projects.carousel').map((item, i) => ({
-    image: `/images/votaciones${i + 1}.png`,
-    caption: item.caption,
-  }));
+  const active = t(`projects.featured.${selectedProject}`);
+  const featuredKeys = ['atmosfera', 'elecciones'];
+
+  const carouselSlides = active.carousel.map((item, i) => {
+    const prefix = selectedProject === 'elecciones' ? 'votaciones' : 'atmosfera';
+    return {
+      image: `/images/${prefix}/${prefix}${i + 1}.png`,
+      caption: item.caption,
+    };
+  });
 
   return (
     <section id="projects" className="py-20 bg-surface-dim scroll-mt-16">
@@ -85,27 +90,56 @@ export default function ProjectsSection() {
           <SectionTitle>{t('projects.title')}</SectionTitle>
         </div>
 
-        <div className="mb-5">
-          <p className="text-body-lg text-on-surface-variant text-center mb-8">
-            {t('projects.carouselTitle')}
-          </p>
-          <ProjectCarousel slides={carouselSlides} />
+        {/* Project selector tabs */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+          {featuredKeys.map((key) => {
+            const project = t(`projects.featured.${key}`);
+            const isActive = selectedProject === key;
+            return (
+              <button
+                key={key}
+                onClick={() => setSelectedProject(key)}
+                className={`flex items-center gap-3 px-6 py-3 rounded-xl border transition-all duration-300 font-label-md text-label-md cursor-pointer ${
+                  isActive
+                    ? 'border-primary-container bg-primary-container/10 text-primary-container shadow-[0_0_15px_rgba(0,240,255,0.1)]'
+                    : 'border-white/10 bg-surface-container text-on-surface-variant hover:border-primary-container/40 hover:text-primary-container'
+                }`}
+              >
+                <img
+                  src={project.logo}
+                  alt={project.buttonLabel}
+                  className="w-8 h-8 object-contain rounded"
+                />
+                <span>{project.buttonLabel}</span>
+              </button>
+            );
+          })}
         </div>
 
-        <p className="text-body-md text-on-surface-variant text-center mb-2 font-bold">
-          {t('projects.technologies')}
-        </p>
+        {/* Featured project content */}
+        <div key={selectedProject} className="animate-fade-in-up mb-12">
+          <p className="text-body-lg text-on-surface-variant text-center mb-8">
+            {active.carouselTitle}
+          </p>
+          <ProjectCarousel slides={carouselSlides} />
 
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {portfolioTech.map((tech) => (
-            <span
-              key={tech.name}
-              className="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full font-code-sm text-[12px] flex items-center gap-1.5 hover:bg-primary-container/20 transition-all duration-300 hover:scale-105"
-            >
-              {tech.Icon && <tech.Icon className="w-3.5 h-3.5" />}
-              {tech.name}
-            </span>
-          ))}
+          <p className="text-body-md text-on-surface-variant text-center mt-8 mb-2 font-bold">
+            {t('projects.technologies')}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {active.tech.map((tech) => {
+              const Icon = iconMap[tech] || null;
+              return (
+                <span
+                  key={tech}
+                  className="bg-primary-container/10 text-primary-container px-3 py-1 rounded-full font-code-sm text-[12px] flex items-center gap-1.5 hover:bg-primary-container/20 transition-all duration-300 hover:scale-105"
+                >
+                  {Icon && <Icon className="w-3.5 h-3.5" />}
+                  {tech}
+                </span>
+              );
+            })}
+          </div>
         </div>
 
         <div className="flex items-center gap-4 mb-8">

@@ -26,18 +26,40 @@
   "projects": {
     "title": "Mis Proyectos",
     "viewGithub": "Ver Mi GitHub",
-    "carouselTitle": "Así se ve mi proyecto más reciente — una aplicación web de elecciones escolares para instituciones colombianas, con base de datos en tiempo real y conexión en red local.",
-    "carousel": [
-      { "caption": "Página de inicio segura que brinda acceso solo a profesores mediante contraseña e identifica a los estudiantes por su número de documento." },
-      { "caption": "Interfaz de votación estudiantil que muestra fotos, nombres y propuestas de los candidatos para cada cargo, con opción de voto en blanco." },
-      { "caption": "Panel administrativo para gestionar datos de la institución, configuración de elecciones y credenciales, con archivo de elecciones pasadas." },
-      { "caption": "Pestaña de gestión de estudiantes que permite a los administradores ver, editar, eliminar e importar registros de estudiantes vía CSV." },
-      { "caption": "Pestaña de candidatos para gestionar perfiles y asignación de cargos de los mismos." },
-      { "caption": "Panel de resultados con conteo de votos en tiempo real y reportes exportables." },
-      { "caption": "Pantalla de confirmación que informa a los estudiantes que su voto fue registrado, con redirección automática a la página principal tras unos segundos." }
-    ],
     "technologies": "Hecho con:",
     "subtitle": "Más Proyectos",
+    "featured": {
+      "elecciones": {
+        "buttonLabel": "Web app de elecciones escolares",
+        "logo": "/images/logos/elecciones-logo.png",
+        "carouselTitle": "Aplicación web de elecciones escolares para instituciones colombianas, con base de datos en tiempo real y conexión en red local.",
+        "carousel": [
+          { "caption": "Página de inicio segura que brinda acceso solo a profesores mediante contraseña e identifica a los estudiantes por su número de documento." },
+          { "caption": "Interfaz de votación estudiantil que muestra fotos, nombres y propuestas de los candidatos para cada cargo, con opción de voto en blanco." },
+          { "caption": "Panel administrativo para gestionar datos de la institución, configuración de elecciones y credenciales, con archivo de elecciones pasadas." },
+          { "caption": "Pestaña de gestión de estudiantes que permite a los administradores ver, editar, eliminar e importar registros de estudiantes vía CSV." },
+          { "caption": "Pestaña de candidatos para gestionar perfiles y asignación de cargos de los mismos." },
+          { "caption": "Panel de resultados con conteo de votos en tiempo real y reportes exportables." },
+          { "caption": "Pantalla de confirmación que informa a los estudiantes que su voto fue registrado, con redirección automática a la página principal tras unos segundos." }
+        ],
+        "tech": ["Python", "Flask", "SQLite", "HTML", "CSS", "JavaScript", "PyInstaller", "Inno Setup Compiler", "Selenium", "Katalon"]
+      },
+      "atmosfera": {
+        "buttonLabel": "Atmósfera Lab - Catálogo de terrenos",
+        "logo": "/images/logos/atmosfera-logo.png",
+        "carouselTitle": "Así se ve mi proyecto más reciente — Una aplicación de catálogo de terrenos con diseño moderno estilo Glass, diseñada para explorar y gestionar listados de propiedades con información detallada y búsqueda interactiva, actualización de información desde la app y scrapeo de anuncios inmobiliarios.",
+        "carousel": [
+          { "caption": "Página de inicio con solicitud de contraseña para protección de datos." },
+          { "caption": "Página principal con filtros de búsqueda para los terrenos, con posibilidad de guardar y cargar presets y mapa interactivo mostrando el punto central de cada propiedad." },
+          { "caption": "Listado de terrenos filtrados por los criterios seleccionados con información principal y opciones para abrir anuncio, ver información detallada y mostrar en el mapa." },
+          { "caption": "Página de detalle del terreno con mapa de ubicación, dimensiones y gran listado de características. Con botón para exportar como PDF y editar información." },
+          { "caption": "PDF exportado con información detallada del terreno." },
+          { "caption": "Panel de actualización de información con opciones avanzadas." },
+          { "caption": "Panel de contactos para tener a la mano información de posibles colaboradores, ingenieros, arquitectos, geólogos, etc." }
+        ],
+        "tech": ["Python", "React", "TypeScript", "JavaScript", "Electron", "FastAPI", "Uvicorn", "Shapely", "GeoPandas", "Tailwind CSS", "Vite", "SQLite", "Git"]
+      }
+    },
     "items": [
       {
         "domain": "Aplicación Web",
