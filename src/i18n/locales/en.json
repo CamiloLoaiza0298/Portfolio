@@ -32,7 +32,7 @@
       "elecciones": {
         "buttonLabel": "School Elections Web App",
         "logo": "/images/logos/elecciones-logo.png",
-        "carouselTitle": "Here's a look at my most recent project — a school elections web application for Colombian institutions, featuring a real-time database and local network connectivity.",
+        "carouselTitle": "School elections web application for Colombian institutions, featuring a real-time database and local network connectivity.",
         "carousel": [
           { "caption": "Secure homepage that provides teacher-only access via password and identifies students by their ID." },
           { "caption": "Student voting interface displaying candidates' photos, names, and proposals for each position, with an option for blank votes." },
@@ -47,7 +47,7 @@
       "atmosfera": {
         "buttonLabel": "Atmósfera Lab - Terrain Catalog",
         "logo": "/images/logos/atmosfera-logo.png",
-        "carouselTitle": "A terrain catalog web application designed for browsing and managing land listings with detailed property information and interactive search.",
+        "carouselTitle": "Here's a look at my most recent project — A terrain catalog web application designed for browsing and managing land listings with detailed property information and interactive search.",
         "carousel": [
           { "caption": "Home page with a password prompt for data protection." },
           { "caption": "Main page with search filters for terrains, options to save and load presets, and an interactive map showing each property's center point." },
