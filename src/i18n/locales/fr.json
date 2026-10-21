@@ -32,7 +32,7 @@
       "elecciones": {
         "buttonLabel": "Web app d'élections scolaires",
         "logo": "/images/logos/elecciones-logo.png",
-        "carouselTitle": "Voici un aperçu de mon projet le plus récent — une application web d'élections scolaires pour les institutions colombiennes, avec base de données en temps réel et connectivité réseau local.",
+        "carouselTitle": "Application web d'élections scolaires pour les institutions colombiennes, avec base de données en temps réel et connectivité réseau local.",
         "carousel": [
           { "caption": "Page d'accueil sécurisée offrant un accès aux enseignants uniquement par mot de passe et identifiant les étudiants par leur numéro de document." },
           { "caption": "Interface de vote étudiant affichant les photos, noms et propositions des candidats pour chaque poste, avec option de vote blanc." },
@@ -47,7 +47,7 @@
       "atmosfera": {
         "buttonLabel": "Atmósfera Lab - Catalogue de terrains",
         "logo": "/images/logos/atmosfera-logo.png",
-        "carouselTitle": "Une application web de catalogue de terrains conçue pour explorer et gérer des listes de propriétés avec des informations détaillées et une recherche interactive.",
+        "carouselTitle": "Voici un aperçu de mon projet le plus récent — Une application web de catalogue de terrains conçue pour explorer et gérer des listes de propriétés avec des informations détaillées et une recherche interactive.",
         "carousel": [
           { "caption": "Page d'accueil avec demande de mot de passe pour protéger les données." },
           { "caption": "Page principale avec des filtres de recherche de terrains, la possibilité d'enregistrer et de charger des préréglages, ainsi qu'une carte interactive indiquant le point central de chaque propriété." },
